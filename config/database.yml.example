@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: sindicale_development
+  username: your_username
+  password: your_password
+
+test:
+  <<: *default
+  database: sindicale_test
+  username: your_username
+  password: your_password
+
+production:
+  <<: *default
+  database: sindicale_production
+  username: sindicale
+  password: <%= ENV['SINDICALE_DATABASE_PASSWORD'] %>
